@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado por relleno</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-box">
+        <h2>Cifrado por relleno de bits</h2>
+        <form>
+            <div class="user-box">
+                <input id="InputTexto" type="text" name="" required="" ondrop="dropHandlerTxt(event)" ondragover="dragOverHandlerTxt(event)">
+                <label>Texto plano o cifrado</label>
+            </div>
+            <div class="user-box">
+                <input id="InputClave" type="text" name="" required="" ondrop="dropHandlerKey(event)" ondragover="dragOverHandlerKey(event)">
+                <label>Clave</label>
+            </div>
+            <a href="#" onclick="getData()">
+                Enviar
+            </a>
+            <a href="#" onclick="location.reload()" >
+                Lmpiar
+            </a>
+        </form>
+        <div class="Output">
+            <p id="Resultado"></p>
+        </div>
+    </div>
+</body>
+<footer>
+    <div>
+        <a href="https://github.com/rvv3nd/"><img src="https://img.icons8.com/material-sharp/24/000000/github.png"/></a>
+    </div>
+    <div><a href="https://github.com/rvv3nd/C">Código de la práctica</a></div>
+</footer>
+</html>
