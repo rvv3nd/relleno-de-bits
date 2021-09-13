@@ -113,17 +113,26 @@ function rellena(txt,key){
     var t = []
     var k = []
     if(txt.length > key.length){
-        /*Cuando la longitud de la clave sea mayor, 
+        /*Cuando la longitud del texto sea mayor, 
         se buscara un longitud en la que se reduzca la clave
         a manera de que ambas sean del mismo tamaño*/
     }else{
         txt.split("").forEach(element => {
-            t.push(indexToBinary(ascii.indexOf(element)))
+            t.push(ascii.indexOf(element))
         });
         key.split("").forEach(element => {
-            k.push(indexToBinary(ascii.indexOf(element)))
+            k.push(ascii.indexOf(element))
         });
     }
-
+    
     return doXOR(t,k)
+}
+
+function doXOR(text,key){
+  var cad = ""
+  for(let i=0;i<text.length;i++){
+    console.log(`${text[i].toString(2)} XOR  ${key[i].toString(2)} : ${(text[i] ^ key[i]).toString(2)} `);
+    cad += ascii[(text[i] ^ key[i])]
+  }
+  return cad
 }
