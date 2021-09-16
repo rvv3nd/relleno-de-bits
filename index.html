@@ -18,7 +18,8 @@
             </section>
 
             <div class="input">
-                <input type="text" placeholder="Type something...">
+                <input id ="InputTexto" type="text" placeholder="Mensaje..." ondrop="dropHandlerTxt(event)" ondragover="dragOverHandlerTxt(event)">
+                <input id ="InputClave"type="text" placeholder="Clave..." ondrop="dropHandlerKey(event)" ondragover="dragOverHandlerKey(event)">
             </div>
             <div class="enviar">
                 <button type="button" onclick="">Enviar cifrado</button>
