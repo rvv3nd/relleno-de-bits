@@ -1,23 +1,26 @@
 body{
+  margin-top: 0;
+  padding: 0;
   height: 100%;
-  background: hsla(154, 100%, 76%, 1);
   background: linear-gradient(90deg, hsla(154, 100%, 76%, 1) 0%, hsla(234, 100%, 83%, 1) 50%, hsla(288, 100%, 81%, 1) 100%);
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#84FFC9", endColorstr="#AAB2FF", GradientType=1 );
 }
 .container {
+  margin-top: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: 0.3fr 2.4fr 0.3fr;
-  grid-template-rows: 0.3fr 2.4fr 0.3fr;
+  grid-template-rows:2.4fr 0.3fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    ". . ."
     ". chat ."
     ". . .";
     height: 100%;
 }
 
 .chat {
+  margin-top: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1.5fr 0.5fr;
@@ -28,23 +31,49 @@ body{
     "mensajes mensajes mensajes"
     "input input enviar";
   grid-area: chat;
-  height: 480px;
+  height: 530px;
   border-radius: 20px;
   padding-left: 30px;
   background: rgba(0, 0, 0, .2);
+
 }
 
-.mensajes{
+#mensajes{
   grid-area: mensajes;
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: flex-start;
 }
-p{
+
+p[name="user_name"]{
+  width: 100%;
+  font-size: 10px;
+  text-align: right;
+}
+p[name="msj"]{
+  width: 100%;
+  font-size: 20px;
+  text-align: justify;
+  margin-top: 30px;
+}
+p[name="time"]{
+  width: 100%;
+  font-size: 8px;
+  text-align: right;
+}
+p:hover{
+  cursor: pointer;
+}
+.globe{
   background: rgba(255, 255, 255, 0.728);
   border-radius: 30px;
+  max-height: 80px;
   padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+
 }
 
 .input { 
@@ -72,10 +101,11 @@ input:focus{
   grid-area: enviar; 
   display:flexbox;
   justify-content: center;
-  align-items: baseline;
+  align-items:flex-end;
 }
  
 button {
+  margin-top: 10px;
   cursor: pointer;
   padding: 20px;
   margin-left: 25%;

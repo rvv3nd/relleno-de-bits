@@ -53,9 +53,14 @@ const ascii = [
     "¹",  "³",   "²",   "■",  " "
   ]
 
+const profile_images = ["img/pp_1_icon.png", "img/pp_2_icon.png", "img/pp_3_icon.png"]
 /*
 Funciones para arrastrar y recuperar archivos
 */
+
+var user_img = 0 //variable que define el numero de imagen asignado al inciar sesion
+var user_name = "user1" //obtenida en inicio de sesión
+
 function dragOverHandlerTxt(event){
     event.preventDefault();
     //console.log('Fichero(s) detectados');
@@ -101,7 +106,38 @@ los pasa a la función principal y devuelve el resultado en un inner text
 function getData(){
     const text = document.getElementById("InputTexto").value
     const key = document.getElementById("InputClave").value
-    document.getElementById("Resultado").innerText = rellena(text,key)
+    createMessage(rellena(text,key),key)
+    document.getElementById("InputTexto").value = ""  
+}
+
+function createMessage(texto,key){
+  var date = new Date()
+  var division = document.createElement('div')
+  division.className = "globe"
+  var user = document.createElement('p')
+  user.setAttribute("name","user_name")
+  var mensaje = document.createElement('p')
+  mensaje.setAttribute("name","msj")
+  mensaje.setAttribute("onclick",'decifraMensajeRecibido(" '+rellena(texto,key)+' " )')
+  var time = document.createElement('p')
+  time.setAttribute("name","time")
+  var img = document.createElement('img')
+  img.id = "profile_img"
+  img.src = profile_images[user_img]
+  user.innerText = user_name + " says:"
+  mensaje.innerHTML = texto
+  time.innerText = `at ${date.getHours()}:${date.getMinutes()}`
+  division.appendChild(img)
+  division.appendChild(user)
+  division.appendChild(mensaje);
+  division.appendChild(time);
+  document.getElementById("mensajes").appendChild(division)
+}
+
+
+function decifraMensajeRecibido(texto){
+  confirm(`Traducción: ${texto}.`)
+  
 }
 
 /*
@@ -134,5 +170,6 @@ function doXOR(text,key){
     console.log(`${text[i].toString(2)} XOR  ${key[i].toString(2)} : ${(text[i] ^ key[i]).toString(2)} `);
     cad += ascii[(text[i] ^ key[i])]
   }
+  console.log(cad)
   return cad
 }

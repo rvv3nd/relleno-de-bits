@@ -12,17 +12,17 @@
 <body>
     <div class="container">
         <div class="chat">
-
-            <section class="mensajes">
-                <p>Hola mundo!</p>
-            </section>
+            
+            <div id="mensajes">
+                
+            </div>
 
             <div class="input">
                 <input id ="InputTexto" type="text" placeholder="Mensaje..." ondrop="dropHandlerTxt(event)" ondragover="dragOverHandlerTxt(event)">
                 <input id ="InputClave"type="text" placeholder="Clave..." ondrop="dropHandlerKey(event)" ondragover="dragOverHandlerKey(event)">
             </div>
             <div class="enviar">
-                <button type="button" onclick="">Enviar cifrado</button>
+                <button type="button" onclick="getData()">Enviar cifrado</button>
           </div>
         </div>
       </div>
