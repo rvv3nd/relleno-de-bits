@@ -52,15 +52,27 @@ const ascii = [
     "÷",  "¸",   "°",   "¨",  "·",
     "¹",  "³",   "²",   "■",  " "
   ]
-
+/*
+Funciones para la configuración del perfil de usuario
+ */
 const profile_images = ["img/pp_1_icon.png", "img/pp_2_icon.png", "img/pp_3_icon.png"]
+var user_img = 0 //variable que define el numero de imagen asignado al inciar sesion
+//obtenida en inicio de sesión
+var user_name = localStorage.getItem("username")
+function iniciarSesion(){
+  user_name = document.getElementById("username").value
+  alert(`Bienvenido ${user_name}`)
+  document.getElementById("name").value = user_name
+}
+
+function iniciarSesion(){
+  localStorage.setItem("username",document.getElementById("username").value)
+  console.log(localStorage.getItem("username"))
+  window.location.assign("/index.html")
+}
 /*
 Funciones para arrastrar y recuperar archivos
 */
-
-var user_img = 0 //variable que define el numero de imagen asignado al inciar sesion
-var user_name = "user1" //obtenida en inicio de sesión
-
 function dragOverHandlerTxt(event){
     event.preventDefault();
     //console.log('Fichero(s) detectados');
