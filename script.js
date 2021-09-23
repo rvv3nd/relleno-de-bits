@@ -119,6 +119,31 @@ function dropHandlerKey(event){
 Funcion que obtiene el texto y la clave del html
 los pasa a la función principal y devuelve el resultado en un inner text 
 */
+function isEnter(e){
+  if(e.keyCode==13){
+    console.log("es enter")
+    trySeend();
+  }
+}
+
+
+function trySeend(){
+  /*
+  Función para comprobar si se puede enviar el mensaje
+  */   
+ switch (true) {  
+  case (document.getElementById("InputTexto").value == ""):
+      alert("Error en el envío! Es necesario ingresar un mensaje")
+    break;
+  case (document.getElementById("InputClave").value == ""): 
+    alert("Error en el envío! Es necesario ingresar una clave")
+    break;
+  default:
+    getData()
+    break;
+  }
+}
+
 function getData(){
     const text = document.getElementById("InputTexto").value
     const key = document.getElementById("InputClave").value
@@ -154,29 +179,35 @@ function createMessage(texto,key){
 
 function decifraMensajeRecibido(texto){
   confirm(`Traducción: ${texto}.`)
-  
 }
 
 /*
 Funcion que codifica o decodifica
-*/
+*/ 
 
 function rellena(txt,key){
 
-    var t = []
-    var k = []
+    var t = [], k = [], dif = 0, index = 0
+
     if(txt.length > key.length){
-        /*Cuando la longitud del texto sea mayor, 
-        se buscara un longitud en la que se reduzca la clave
-        a manera de que ambas sean del mismo tamaño*/
-    }else{
-        txt.split("").forEach(element => {
-            t.push(ascii.indexOf(element))
-        });
-        key.split("").forEach(element => {
-            k.push(ascii.indexOf(element))
-        });
+      dif = txt.length - key.length
+      var i = 0
+      while(dif > 0){ 
+        i = 0 
+        while( i<key.length && i<dif){
+          key += key[index++]
+          i++
+        }
+        dif = txt.length - key.length
+      }
+
     }
+    txt.split("").forEach(element => {
+        t.push(ascii.indexOf(element))
+    });
+    key.split("").forEach(element => {
+        k.push(ascii.indexOf(element))
+    });
     
     return doXOR(t,k)
 }

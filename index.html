@@ -18,11 +18,11 @@
             </div>
 
             <div class="input">
-                <input id ="InputTexto" type="text" placeholder="Mensaje..." ondrop="dropHandlerTxt(event)" ondragover="dragOverHandlerTxt(event)">
-                <input id ="InputClave"type="text" placeholder="Clave..." ondrop="dropHandlerKey(event)" ondragover="dragOverHandlerKey(event)">
+                <input id ="InputTexto" type="text" placeholder="Mensaje..." ondrop="dropHandlerTxt(event)" ondragover="dragOverHandlerTxt(event)" onkeypress="isEnter(event)">
+                <input id ="InputClave"type="text" placeholder="Clave..." ondrop="dropHandlerKey(event)" ondragover="dragOverHandlerKey(event)" onkeypress="isEnter(event)">
             </div>
             <div class="enviar">
-                <button type="button" onclick="getData()">Enviar cifrado</button>
+                <button id="intentoEnviar" type="button" onclick="trySeend()">Enviar cifrado</button>
           </div>
         </div>
       </div>
