@@ -55,20 +55,24 @@ const ascii = [
 /*
 Funciones para la configuración del perfil de usuario
  */
-const profile_images = ["img/pp_1_icon.png", "img/pp_2_icon.png", "img/pp_3_icon.png"]
-var user_img = 0 //variable que define el numero de imagen asignado al inciar sesion
+const profile_images = [
+  "img/pp_1_icon.png", "img/pp_2_icon.png", "img/pp_3_icon.png", "img/pp_4_icon.png",
+  "img/pp_5_icon.png", "img/pp_6_icon.jpg", "img/pp_7_icon.jpg", "img/pp_8_icon.jpg"
+]
+
+var user_img = localStorage.getItem("index_pp") //variable que define el numero de imagen asignado al inciar sesion
+profile_images.splice(user_img,1)
+// console.log(user_img)
 //obtenida en inicio de sesión
 var user_name = localStorage.getItem("username")
-function iniciarSesion(){
-  user_name = document.getElementById("username").value
-  alert(`Bienvenido ${user_name}`)
-  document.getElementById("name").value = user_name
-}
+
+
 
 function iniciarSesion(){
   localStorage.setItem("username",document.getElementById("username").value)
+  localStorage.setItem("index_pp",Math.ceil(Math.random()*profile_images.length))
   console.log(localStorage.getItem("username"))
-  window.location.assign("/index.html")
+  window.location.assign("./index.html")
 }
 /*
 Funciones para arrastrar y recuperar archivos
@@ -131,6 +135,7 @@ function createMessage(texto,key){
   var mensaje = document.createElement('p')
   mensaje.setAttribute("name","msj")
   mensaje.setAttribute("onclick",'decifraMensajeRecibido(" '+rellena(texto,key)+' " )')
+  mensaje.setAttribute('font-family','"Merriweather", Black')
   var time = document.createElement('p')
   time.setAttribute("name","time")
   var img = document.createElement('img')
