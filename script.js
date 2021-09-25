@@ -59,13 +59,15 @@ const profile_images = [
   "img/pp_1_icon.png", "img/pp_2_icon.png", "img/pp_3_icon.png", "img/pp_4_icon.png",
   "img/pp_5_icon.png", "img/pp_6_icon.jpg", "img/pp_7_icon.jpg", "img/pp_8_icon.jpg"
 ]
-
+///* */
 var user_img = localStorage.getItem("index_pp") //variable que define el numero de imagen asignado al inciar sesion
 profile_images.splice(user_img,1)
 // console.log(user_img)
 //obtenida en inicio de sesión
 var user_name = localStorage.getItem("username")
 
+localStorage.clear();
+///* */
 
 
 function iniciarSesion(){
